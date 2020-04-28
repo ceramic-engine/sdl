@@ -494,6 +494,12 @@ SDL_LoadLaunchImageNamed(NSString *name, int screenh)
 
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
 {
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"SDLApplicationOpenURLWithOptions" object:nil userInfo:@{
+        @"url": url,
+        @"options": options
+    }];
+
     /* TODO: Handle options */
     [self sendDropFileForURL:url];
     return YES;
