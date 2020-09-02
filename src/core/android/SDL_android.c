@@ -46,6 +46,7 @@
 #include <sys/types.h>
 #include <unistd.h>
 #include <dlfcn.h>
+#include <string.h>
 /* #define LOG_TAG "SDL_android" */
 /* #define LOGI(...)  __android_log_print(ANDROID_LOG_INFO,LOG_TAG,__VA_ARGS__) */
 /* #define LOGE(...)  __android_log_print(ANDROID_LOG_ERROR,LOG_TAG,__VA_ARGS__) */
@@ -464,12 +465,23 @@ JNIEXPORT int JNICALL SDL_JAVA_INTERFACE(nativeRunMain)(JNIEnv* env, jclass cls,
 {
     int status = -1;
     const char *library_file;
-    void *library_handle;
+    void *library_handle = NULL;
 
     __android_log_print(ANDROID_LOG_VERBOSE, "SDL", "nativeRunMain()");
 
     library_file = (*env)->GetStringUTFChars(env, library, NULL);
+    __android_log_print(ANDROID_LOG_DEBUG, "SDL", "nativeRunMain() %s", library_file);
     library_handle = dlopen(library_file, RTLD_GLOBAL);
+
+    if (!library_handle) {
+        char *last_slash = strrchr(library_file, '/');
+        if (last_slash) {
+            last_slash += sizeof(char);
+            __android_log_print(ANDROID_LOG_DEBUG, "SDL", "nativeRunMain(): %s -> %s", library_file, last_slash);
+            library_handle = dlopen(last_slash, RTLD_GLOBAL);
+        }
+    }
+
     if (library_handle) {
         const char *function_name;
         SDL_main_func SDL_main;
