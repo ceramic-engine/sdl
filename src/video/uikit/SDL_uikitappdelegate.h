@@ -31,8 +31,6 @@
 
 @interface SDLUIKitDelegate : NSObject<UIApplicationDelegate>
 
-@property (nonatomic, strong) NSDictionary *sdlAppLaunchOptions;
-
 + (id)sharedAppDelegate;
 + (NSString *)getAppDelegateClassName;
 
