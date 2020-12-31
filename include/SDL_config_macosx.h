@@ -148,7 +148,7 @@
 
 /* The MFI controller support requires ARC Objective C runtime */
 #if MAC_OS_X_VERSION_MIN_REQUIRED >= 1080 && !defined(__i386__)
-#define SDL_JOYSTICK_MFI 1
+// #define SDL_JOYSTICK_MFI 1
 #endif
 
 /* Enable the dummy sensor driver */
@@ -199,7 +199,7 @@
 #endif
 
 #ifndef SDL_VIDEO_RENDER_OGL_ES2
-#define SDL_VIDEO_RENDER_OGL_ES2 1
+#define SDL_VIDEO_RENDER_OGL_ES2 0
 #endif
 
 /* Metal only supported on 64-bit architectures with 10.11+ */
@@ -211,7 +211,7 @@
 
 #ifndef SDL_VIDEO_RENDER_METAL
 #if SDL_PLATFORM_SUPPORTS_METAL
-#define SDL_VIDEO_RENDER_METAL    1
+// #define SDL_VIDEO_RENDER_METAL    1
 #else
 #define SDL_VIDEO_RENDER_METAL    0
 #endif
@@ -225,7 +225,7 @@
 #define SDL_VIDEO_OPENGL_ES2    1
 #endif
 #ifndef SDL_VIDEO_OPENGL_EGL
-#define SDL_VIDEO_OPENGL_EGL    1
+#define SDL_VIDEO_OPENGL_EGL    0
 #endif
 #ifndef SDL_VIDEO_OPENGL_CGL
 #define SDL_VIDEO_OPENGL_CGL    1

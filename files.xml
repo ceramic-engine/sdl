@@ -1,12 +1,7 @@
 <xml>
 
     <section unless="SDL_CONFIG_PATH" >
-       <set name="SDL_CONFIG_PATH" value="${NATIVE_TOOLKIT_PATH}/sdl/include/configs/default/" unless="windows || mac || linux || rpi" />
-       <set name="SDL_CONFIG_PATH" value="${NATIVE_TOOLKIT_PATH}/sdl/include/configs/linux/" if="linux" unless="rpi"/>
-       <set name="SDL_CONFIG_PATH" value="${NATIVE_TOOLKIT_PATH}/sdl/include/configs/windows/" if="windows" unless="winrt" />
-       <set name="SDL_CONFIG_PATH" value="${NATIVE_TOOLKIT_PATH}/sdl/include/configs/winrt/" if="winrt" />
-       <set name="SDL_CONFIG_PATH" value="${NATIVE_TOOLKIT_PATH}/sdl/include/configs/mac/" if="mac" />
-       <set name="SDL_CONFIG_PATH" value="${NATIVE_TOOLKIT_PATH}/sdl/include/configs/rpi/" if="rpi" />
+       <set name="SDL_CONFIG_PATH" value="${NATIVE_TOOLKIT_PATH}/sdl/include/" />
     </section>
 
 
@@ -126,7 +121,7 @@
 
         <section if="windows">
 
-            <compilerflag value="-DUSING_GENERATED_CONFIG_H" />
+            <!-- <compilerflag value="-DUSING_GENERATED_CONFIG_H" /> -->
             <compilerflag value="-DNATIVE_TOOLKIT_SDL_ANGLE" if="NATIVE_TOOLKIT_SDL_ANGLE" />
             <compilerflag value="-DNATIVE_TOOLKIT_STATIC_ANGLE" if="NATIVE_TOOLKIT_STATIC_ANGLE" />
             <compilerflag value="-DSDL_VIDEO_STATIC_ANGLE" if="NATIVE_TOOLKIT_STATIC_ANGLE" />
@@ -143,7 +138,7 @@
 
         <section if="linux">
 
-            <compilerflag value="-DUSING_GENERATED_CONFIG_H" />
+            <!-- <compilerflag value="-DUSING_GENERATED_CONFIG_H" /> -->
             <compilerflag value="-DHAVE_LINUX_VERSION_H" />
             <compilerflag value="-D_REENTRANT" />
             <compilerflag value="-mmmx" unless="rpi" />
@@ -171,7 +166,7 @@
 
         <section if="mac">
 
-            <compilerflag value="-DUSING_GENERATED_CONFIG_H" />
+            <!-- <compilerflag value="-DUSING_GENERATED_CONFIG_H" /> -->
             <compilerflag value="-DTARGET_API_MAC_CARBON" />
             <compilerflag value="-DTARGET_API_MAC_OSX" />
             <compilerflag value="-D_THREAD_SAFE" />
@@ -315,6 +310,7 @@
 
             <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/joystick/hidapi/SDL_hidapi_gamecube.c" />
             <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/joystick/hidapi/SDL_hidapi_ps4.c" />
+            <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/joystick/hidapi/SDL_hidapi_ps5.c" />
             <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/joystick/hidapi/SDL_hidapi_rumble.c" />
             <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/joystick/hidapi/SDL_hidapi_steam.c" />
             <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/joystick/hidapi/SDL_hidapi_switch.c" />
@@ -529,6 +525,7 @@
             <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/haptic/darwin/SDL_syshaptic.c" />
             <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/locale/macosx/SDL_syslocale.m" />
             <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/hidapi/mac/hid.c" />
+            <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/joystick/iphoneos/SDL_mfijoystick.m" />
             <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/power/macosx/SDL_syspower.c" />
             <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/file/cocoa/SDL_rwopsbundlesupport.m" />
             <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/filesystem/cocoa/SDL_sysfilesystem.m" />
