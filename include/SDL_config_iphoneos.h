@@ -162,7 +162,7 @@
 #define SDL_TIMER_UNIX  1
 
 /* Supported video drivers */
-#define SDL_VIDEO_DRIVER_UIKIT  1
+#define SDL_VIDEO_DRIVER_UIKIT  0
 #define SDL_VIDEO_DRIVER_DUMMY  1
 
 /* Enable OpenGL ES */
