@@ -30,12 +30,13 @@
 
 #import <Foundation/Foundation.h>
 
-#if (__IPHONE_OS_VERSION_MAX_ALLOWED >= 140000) || (__APPLETV_OS_VERSION_MAX_ALLOWED >= 140000) || (__MAC_OS_VERSION_MAX_ALLOWED > 1500000)
-#import <GameController/GameController.h>
+// Breaks build, disable it for now
+// #if (__IPHONE_OS_VERSION_MAX_ALLOWED >= 140000) || (__APPLETV_OS_VERSION_MAX_ALLOWED >= 140000) || (__MAC_OS_VERSION_MAX_ALLOWED > 1500000)
+// #import <GameController/GameController.h>
 
-#define ENABLE_GCKEYBOARD
-#define ENABLE_GCMOUSE
-#endif
+// #define ENABLE_GCKEYBOARD
+// #define ENABLE_GCMOUSE
+// #endif
 
 static BOOL UIKit_EventPumpEnabled = YES;
 
