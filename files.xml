@@ -72,6 +72,7 @@
         <depend name="${NATIVE_TOOLKIT_PATH}/sdl/include/SDL_config_minimal.h"/>
         <depend name="${NATIVE_TOOLKIT_PATH}/sdl/include/SDL_config_pandora.h"/>
         <depend name="${NATIVE_TOOLKIT_PATH}/sdl/include/SDL_config_psp.h"/>
+        <depend name="${NATIVE_TOOLKIT_PATH}/sdl/include/SDL_config_linux.h"/>
         <depend name="${NATIVE_TOOLKIT_PATH}/sdl/include/SDL_config_windows.h" unless="winrt"/>
         <depend name="${NATIVE_TOOLKIT_PATH}/sdl/include/SDL_assert.h"/>
         <depend name="${NATIVE_TOOLKIT_PATH}/sdl/include/SDL_atomic.h"/>
@@ -395,7 +396,7 @@
             <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/audio/fusionsound/SDL_fsaudio.c" />
             <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/audio/nas/SDL_nasaudio.c" />
             <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/audio/paudio/SDL_paudio.c" />
-            <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/audio/pulseaudio/SDL_pulseaudio.c" />
+            <!-- <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/audio/pulseaudio/SDL_pulseaudio.c" /> -->
             <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/audio/qsa/SDL_qsa_audio.c" />
             <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/audio/sndio/SDL_sndioaudio.c" />
             <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/audio/sun/SDL_sunaudio.c" />
@@ -408,8 +409,8 @@
             <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/core/linux/SDL_evdev.c" />
             <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/core/linux/SDL_evdev_kbd.c" />
             <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/core/linux/SDL_udev.c" />
-            <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/core/linux/SDL_dbus.c" />
-            <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/core/linux/SDL_fcitx.c" />
+            <!-- <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/core/linux/SDL_dbus.c" /> -->
+            <!-- <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/core/linux/SDL_fcitx.c" /> -->
             <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/core/linux/SDL_ibus.c" />
             <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/core/linux/SDL_ime.c" />
             <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/core/linux/SDL_threadprio.c" />
