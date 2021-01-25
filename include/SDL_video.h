@@ -835,6 +835,17 @@ extern DECLSPEC void SDLCALL SDL_RestoreWindow(SDL_Window * window);
 extern DECLSPEC int SDLCALL SDL_SetWindowFullscreen(SDL_Window * window,
                                                     Uint32 flags);
 
+/// --- BEGIN clay
+#ifdef __MACOSX__
+/* Support for Mac OS X fullscreen spaces */
+extern DECLSPEC SDL_bool SDLCALL Cocoa_SetWindowFullscreenSpace(SDL_Window * window,
+                                                                SDL_bool state);
+/* Support for Mac OS X fullscreen spaces */
+extern DECLSPEC SDL_bool SDLCALL Cocoa_IsWindowInFullscreenSpace(SDL_Window * window);
+#endif
+/// --- END clay
+
+
 /**
  *  \brief Get the SDL surface associated with the window.
  *
