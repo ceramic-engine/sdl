@@ -46,7 +46,9 @@
         <depend name="${NATIVE_TOOLKIT_PATH}/sdl/include/SDL_mutex.h"/>
         <depend name="${NATIVE_TOOLKIT_PATH}/sdl/include/SDL_name.h"/>
         <depend name="${NATIVE_TOOLKIT_PATH}/sdl/include/SDL_opengl.h"/>
+        <depend name="${NATIVE_TOOLKIT_PATH}/sdl/include/SDL_haptic.h"/>
         <depend name="${NATIVE_TOOLKIT_PATH}/sdl/include/SDL_hints.h"/>
+        <depend name="${NATIVE_TOOLKIT_PATH}/sdl/include/SDL_hidapi.h"/>
         <depend name="${NATIVE_TOOLKIT_PATH}/sdl/include/SDL_joystick.h"/>
         <depend name="${NATIVE_TOOLKIT_PATH}/sdl/include/SDL_keyboard.h"/>
         <depend name="${NATIVE_TOOLKIT_PATH}/sdl/include/SDL_keycode.h"/>
@@ -61,7 +63,6 @@
         <depend name="${NATIVE_TOOLKIT_PATH}/sdl/include/SDL_gesture.h"/>
         <depend name="${NATIVE_TOOLKIT_PATH}/sdl/include/SDL_haptic.h"/>
         <depend name="${NATIVE_TOOLKIT_PATH}/sdl/include/SDL_config_winrt.h"/>
-        <depend name="${NATIVE_TOOLKIT_PATH}/sdl/include/SDL_config_wiz.h"/>
         <depend name="${NATIVE_TOOLKIT_PATH}/sdl/include/SDL_copying.h"/>
         <depend name="${NATIVE_TOOLKIT_PATH}/sdl/include/SDL_cpuinfo.h"/>
         <depend name="${NATIVE_TOOLKIT_PATH}/sdl/include/SDL_egl.h"/>
@@ -71,7 +72,6 @@
         <depend name="${NATIVE_TOOLKIT_PATH}/sdl/include/SDL_config_macosx.h"/>
         <depend name="${NATIVE_TOOLKIT_PATH}/sdl/include/SDL_config_minimal.h"/>
         <depend name="${NATIVE_TOOLKIT_PATH}/sdl/include/SDL_config_pandora.h"/>
-        <depend name="${NATIVE_TOOLKIT_PATH}/sdl/include/SDL_config_psp.h"/>
         <depend name="${NATIVE_TOOLKIT_PATH}/sdl/include/SDL_config_linux.h"/>
         <depend name="${NATIVE_TOOLKIT_PATH}/sdl/include/SDL_config_windows.h" unless="winrt"/>
         <depend name="${NATIVE_TOOLKIT_PATH}/sdl/include/SDL_assert.h"/>
@@ -106,7 +106,7 @@
         <cache value="1" />
         <tag value="${NATIVE_TOOLKIT_OPTIM_TAG}" if="NATIVE_TOOLKIT_OPTIM_TAG" />
 
-        <depend files="native-toolkit-sdl-depends"/>
+        <depend files="native-toolkit-sdl-depends" />
 
         <compilerflag value="-I${ANDROID_NDK_ROOT}/sources/android/cpufeatures" if="android"/>
 
@@ -185,6 +185,7 @@
         <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/SDL_error.c" />
         <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/SDL_hints.c" />
         <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/SDL_log.c" />
+        <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/SDL_list.c" />
         <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/atomic/SDL_atomic.c" />
         <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/atomic/SDL_spinlock.c" />
         <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/audio/SDL_audio.c" />
@@ -278,6 +279,7 @@
         <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/render/software/SDL_drawpoint.c" />
         <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/render/software/SDL_render_sw.c" />
         <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/render/software/SDL_rotate.c" />
+        <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/render/software/SDL_triangle.c" />
 
         <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/video/dummy/SDL_nullevents.c" />
         <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/video/dummy/SDL_nullframebuffer.c" />
@@ -315,10 +317,13 @@
             <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/joystick/hidapi/SDL_hidapi_rumble.c" />
             <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/joystick/hidapi/SDL_hidapi_steam.c" />
             <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/joystick/hidapi/SDL_hidapi_switch.c" />
+            <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/joystick/hidapi/SDL_hidapi_stadia.c" />
+            <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/joystick/hidapi/SDL_hidapi_luna.c" />
             <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/joystick/hidapi/SDL_hidapi_xbox360.c" />
             <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/joystick/hidapi/SDL_hidapi_xbox360w.c" />
             <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/joystick/hidapi/SDL_hidapi_xboxone.c" />
             <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/joystick/hidapi/SDL_hidapijoystick.c" />
+            <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/hidapi/SDL_hidapi.c" />
 
         </section>
 
@@ -538,7 +543,6 @@
             <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/video/cocoa/SDL_cocoametalview.m" />
             <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/video/cocoa/SDL_cocoamodes.m" />
             <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/video/cocoa/SDL_cocoamouse.m" />
-            <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/video/cocoa/SDL_cocoamousetap.m" />
             <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/video/cocoa/SDL_cocoaopengl.m" />
             <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/video/cocoa/SDL_cocoaopengles.m" />
             <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/video/cocoa/SDL_cocoashape.m" />
@@ -575,8 +579,6 @@
             <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/video/uikit/SDL_uikitviewcontroller.m" />
             <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/video/uikit/SDL_uikitwindow.m" />
             <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/video/uikit/SDL_uikitvulkan.m" />
-
-            <compilerflag value="-fobjc-arc" />
 
         </section>
 
