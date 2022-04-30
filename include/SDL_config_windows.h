@@ -227,7 +227,7 @@ typedef unsigned int uintptr_t;
 #endif
 
 /* Enable various audio drivers */
-#define SDL_AUDIO_DRIVER_WASAPI 1
+#define SDL_AUDIO_DRIVER_WASAPI 0
 #define SDL_AUDIO_DRIVER_DSOUND 1
 #define SDL_AUDIO_DRIVER_WINMM  1
 #define SDL_AUDIO_DRIVER_DISK   1
@@ -268,7 +268,7 @@ typedef unsigned int uintptr_t;
 //#define SDL_VIDEO_RENDER_D3D    1
 #endif
 #if !defined(SDL_VIDEO_RENDER_D3D11) && defined(HAVE_D3D11_H)
-#define SDL_VIDEO_RENDER_D3D11  1
+//#define SDL_VIDEO_RENDER_D3D11  1
 #endif
 
 /* Enable OpenGL support */
